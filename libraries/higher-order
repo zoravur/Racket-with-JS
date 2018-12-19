@@ -1,0 +1,13 @@
+(define (foldr f b lst)
+(if (equal? nil lst) b (f (car lst) (foldr f b (cdr lst)))))
+
+
+(define (build-list/acc i n)
+(if (= i n) nil (cons i (build-list/acc (+ i 1) n))))
+
+
+(define (build-list n) (build-list/acc 0 n))
+
+
+(define (foldl f z lst)
+(if (equal? nil lst) z (foldl f (f (car lst) z) (cdr lst))))
